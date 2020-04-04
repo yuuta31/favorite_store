@@ -32,13 +32,10 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-gem 'faker'
-# gem 'haml-rails'
-gem 'materialize-sass', '~> 1.0.0'
-gem 'material_icons' 
+ 
 gem 'jquery-rails'
 gem 'devise'
+gem 'acts-as-taggable-on', '6.5.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
