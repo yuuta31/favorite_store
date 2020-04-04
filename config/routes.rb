@@ -10,34 +10,32 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  # ---予定---
-  
-  # root 'posts#index'
+  root 'posts#index'
 
   # 管理者用
-  # namespace :admins do
-  #   resources: :posts
-  #   resources: :users, only: %i(index, destroy)#アカウントbanのため
-  # end
+  namespace :admins do
+    resources :posts
+    resources :users, only: %i(index, destroy)#アカウントbanのため
+  end
 
   # user用
-  # scope :users do
-  #   resources: :posts, only: %i(index, show) do
-  #     resources: :comments, only: %i(create)
-  #     resources: :likes, only: %i(create,destroy)
-  #     member do
-  #       post "add", to: "clips#create"
-  #     end
-  #   end
-  #   resources: :clips, only: %i(destroy)
-  # end
+  scope :users do
+    resources :posts, only: %i(index, show) do
+      # resources :comments, only: %i(create)
+      # resources :likes, only: %i(create,destroy)
+      # member do
+      #   post "add", to: "clips#create"
+      # end
+    end
+    # resources :clips, only: %i(destroy)
+  end
 
-  # vue.jsのget専用axios
-  # namespace :api do
-  #   resources :posts, only: %i(show)
-  # end
+  # vue.js用
+  namespace :api do
+    resources :posts, only: %i(show)
+  end
 
   # タグ用
-  # get 'tags/:tag', to: 'posts#index', as: :tag
+  get 'tags/:tag', to: 'posts#index', as: :tag
 
 end
