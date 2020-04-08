@@ -14,7 +14,12 @@ Rails.application.routes.draw do
 
   # 管理者用
   namespace :admins do
-    resources :posts
+    resources :posts do
+      collection do
+        get  'search'
+        post 'search'
+      end
+    end
     resources :users, only: %i(index, destroy)#アカウントbanのため
   end
 

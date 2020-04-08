@@ -11,3 +11,10 @@ Admin.create!(nickname: Rails.application.credentials[:admin][:nickname],
               password: Rails.application.credentials[:admin][:password],
               password_confirmation: Rails.application.credentials[:admin][:password_confirmation],
               administrator: true)
+
+array = %w(aaa bbb ccc ddd eee fff ggg)
+array.each{ |tag|
+  tag_list = ActsAsTaggableOn::Tag.new
+  tag_list.name = tag
+  tag_list.save
+}
