@@ -8,8 +8,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string    :place    , null: false
       t.string    :open_time, null: false
       t.string    :store_url, null: false
-      t.references :image
-      t.references :admin    , null: false
+      t.references :admin   , null: false, foreign_key: true
       t.timestamps
     end
   end

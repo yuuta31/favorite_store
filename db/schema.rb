@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_074724) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "nickname", null: false
+    t.boolean "administrator", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
@@ -27,8 +28,10 @@ ActiveRecord::Schema.define(version: 2020_04_03_074724) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image"
+    t.bigint "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_images_on_post_id"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -39,12 +42,10 @@ ActiveRecord::Schema.define(version: 2020_04_03_074724) do
     t.string "place", null: false
     t.string "open_time", null: false
     t.string "store_url", null: false
-    t.bigint "image_id"
     t.bigint "admin_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin_id"], name: "index_posts_on_admin_id"
-    t.index ["image_id"], name: "index_posts_on_image_id"
   end
 
   create_table "taggings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -86,4 +87,6 @@ ActiveRecord::Schema.define(version: 2020_04_03_074724) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "images", "posts"
+  add_foreign_key "posts", "admins"
 end
