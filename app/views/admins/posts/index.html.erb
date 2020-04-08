@@ -1,0 +1,14 @@
+<%= form_for @post, url: admins_posts_path do |f| %>
+  商品名<%= f.text_field :name %><br> 
+  価格<%= f.number_field :payment %><br>
+  最寄り駅<%= f.text_field :station %><br>
+  定休日<%= f.text_field :rest_day %><br>
+  住所<%= f.text_field :place %><br>
+  営業時間<%= f.text_field :open_time %><br>
+  お店のURL<%= f.text_field :store_url %><br>
+  <%= f.fields_for :images do |i| %> 
+    <%= i.file_field :image %><br>
+  <% end %>
+  <%= f.submit %> 
+<% end %>
+
