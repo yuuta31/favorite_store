@@ -10,9 +10,14 @@
     <%= f.check_box :tag_list, { multiple: true }, "#{tag.name}", nil %>
     <%= f.label " #{tag.name}(#{tag.taggings_count})" %>
   <% end %>
-  <%= f.fields_for :images do |i| %> 
-    <%= i.file_field :image %><br>
-  <% end %>
+  <div id="image-box">
+    <%= f.fields_for :images do |image| %>
+      <div data-index="<%= image.index %>" class="js-file_group">
+        <%= image.file_field :image, class: 'js-file' %><br>
+        <span class="js-remove">削除</span>
+      </div>
+    <% end %>
+  </div>
   <%= f.submit %> 
 <% end %>
 
@@ -23,6 +28,9 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.name %></td>
+
+        <td><%= image_tag post.images.first.image.url %></td>
+
         <td><%= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')) %></td>
       </tr>
     <% end %>
@@ -45,3 +53,13 @@
 
 <hr>
 
+
+
+  <tbody>
+    <% @ccc_posts.each do |post| %>
+      <tr>
+        <td><%= post.name %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
