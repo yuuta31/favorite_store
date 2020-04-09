@@ -8,9 +8,15 @@ class Admins::PostsController < ApplicationController
     if params[:tag]
       @posts = Post.tagged_with(params[:tag])
     else
-      @posts = Post.all
+      @posts = Post.all #.includes(:image)
     end
     @tags = ActsAsTaggableOn::Tag.all
+
+    @aaa_posts = Post.tagged_with("aaa")
+    @bbb_posts = Post.tagged_with("bbb")
+    @ccc_posts = Post.tagged_with("ccc")
+    @ddd_posts = Post.tagged_with("ddd")
+
   end
 
   def new
@@ -44,8 +50,8 @@ class Admins::PostsController < ApplicationController
   end
 
   def search
-    @search_posts = Post.where("name LIKE ?", "%#{post_params[:name]}%")
-    @search_posts = @posts.tagged_with(post_params[:tag_list], :match_all => false)
+    search_posts = Post.where("name LIKE ?", "%#{post_params[:name]}%")
+    @search_posts = search_posts.tagged_with(post_params[:tag_list], :match_all => false)
   end
 
   private
