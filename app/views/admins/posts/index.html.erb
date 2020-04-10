@@ -10,17 +10,32 @@
     <%= f.check_box :tag_list, { multiple: true }, "#{tag.name}", nil %>
     <%= f.label " #{tag.name}(#{tag.taggings_count})" %>
   <% end %>
+  <div id="previews">
+    <% if @post.persisted? %>
+      <% @post.images.each_with_index do |image, i| %>
+        <%= image_tag image.image.url, data: { index: i }, width: "100", height: '100' %>
+      <% end %>
+    <% end %>
+  </div>
   <div id="image-box">
     <%= f.fields_for :images do |image| %>
       <div data-index="<%= image.index %>" class="js-file_group">
         <%= image.file_field :image, class: 'js-file' %><br>
         <span class="js-remove">削除</span>
       </div>
+      <% if @post.persisted? %>
+        <%= image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy' %>
+      <% end %>
+    <% end %>
+    <% if @post.persisted? %>
+      <div data-index="<%= @post.images.count %>" class="js-file_group">
+        <%= file_field_tag :image, name: "post[images_attributes][#{@post.images.count}][image]", class: 'js-file' %>
+        <div class="js-remove">削除</div>
+      </div>
     <% end %>
   </div>
   <%= f.submit %> 
 <% end %>
-
 <hr>
 
 <table>
@@ -32,6 +47,11 @@
         <td><%= image_tag post.images.first.image.url %></td>
 
         <td><%= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')) %></td>
+        
+        <td><%= link_to '編集', edit_admins_post_path(post) %></td>
+
+        <td><%= link_to '削除', admins_post_path(post), method: :delete %></td>
+
       </tr>
     <% end %>
   </tbody>

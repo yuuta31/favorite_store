@@ -34,11 +34,17 @@ class Admins::PostsController < ApplicationController
   end
 
   def edit
-
+    @post = Post.find(params[:id])
+    @tags = ActsAsTaggableOn::Tag.all
   end
 
   def update
-
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to admins_posts_path
+    else
+      render :edit
+    end
   end
 
   def show
@@ -46,7 +52,9 @@ class Admins::PostsController < ApplicationController
   end
 
   def destroy
-
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to admins_posts_path
   end
 
   def search
@@ -65,7 +73,7 @@ class Admins::PostsController < ApplicationController
                                  :open_time, 
                                  :store_url,
                                  tag_list: [], 
-                                 images_attributes: [:image]).merge(admin_id: current_admin.id)
+                                 images_attributes: [:image, :_destroy, :id]).merge(admin_id: current_admin.id)
   end
 
 
