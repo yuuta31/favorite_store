@@ -9,5 +9,9 @@ class ApplicationController < ActionController::Base
   def admin_user
     redirect_to root_path unless admin_signed_in? && current_admin.administrator?
   end
+
+  def all_tags
+    @tags = ActsAsTaggableOn::Tag.all
+  end
   
 end

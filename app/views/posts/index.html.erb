@@ -1,3 +1,33 @@
-  aaaaaaaaaa
+<div class="post-index">
+  <div class="image-section"> <%# 写真%>
+    <%= image_tag 'patrick-tomasso-GXXYkSwndP4-unsplash' , class: 'image-section__size'%>
+  </div>
+  <div class="tag-seciton"><%# タグ検索%>
+    <div class="tag-section__search">
+      <%= form_for(@post, url: {controller: 'posts', action: 'search' }) do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
 
-  <v-btn><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %></v-btn>
+        <% @tags.each do |tag| %>
+          <%= f.check_box :tag_list, { multiple: true }, "#{tag.name}", nil %>
+          <%= f.label " #{tag.name}(#{tag.taggings_count})" %>
+        <% end %>
+
+        <%= f.submit "検索" %>
+      <% end %>
+    </div>
+  </div>
+  <div><%# おすすめ%>
+    <div>
+      <% @ccc_posts.each do |post| %>
+        <tr>
+          <td><%= post.name %></td>
+          
+        </tr>
+      <% end %>
+    </div>
+  </div>
+  <div><%# 新着%>
+    <div></div>
+  </div>
+</div>

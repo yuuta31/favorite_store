@@ -56,30 +56,3 @@
     <% end %>
   </tbody>
 </table>
-
-<hr>
-
-<%= form_for(@post, url: {controller: 'admins/posts', action: 'search' }) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <% @tags.each do |tag| %>
-    <%= f.check_box :tag_list, { multiple: true }, "#{tag.name}", nil %>
-    <%= f.label " #{tag.name}(#{tag.taggings_count})" %>
-  <% end %>
-
-  <%= f.submit "検索" %>
-<% end %>
-
-<hr>
-
-
-
-  <tbody>
-    <% @ccc_posts.each do |post| %>
-      <tr>
-        <td><%= post.name %></td>
-        
-      </tr>
-    <% end %>
-  </tbody>

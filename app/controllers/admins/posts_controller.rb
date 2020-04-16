@@ -1,5 +1,7 @@
 class Admins::PostsController < ApplicationController
   before_action :admin_user
+  before_action :all_tags , only: %i(edit)
+  before_action :post_find , only: %i(edit,update,destroy)
 
   def index
     @post = Post.new 
@@ -11,16 +13,6 @@ class Admins::PostsController < ApplicationController
       @posts = Post.all #.includes(:image)
     end
     @tags = ActsAsTaggableOn::Tag.all
-
-    @aaa_posts = Post.tagged_with("aaa")
-    @bbb_posts = Post.tagged_with("bbb")
-    @ccc_posts = Post.tagged_with("ccc")
-    @ddd_posts = Post.tagged_with("ddd")
-
-  end
-
-  def new
-
   end
 
   def create
@@ -30,16 +22,12 @@ class Admins::PostsController < ApplicationController
     else
       render :index
     end
-    
   end
 
   def edit
-    @post = Post.find(params[:id])
-    @tags = ActsAsTaggableOn::Tag.all
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to admins_posts_path
     else
@@ -47,19 +35,12 @@ class Admins::PostsController < ApplicationController
     end
   end
 
-  def show
-
-  end
-
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to admins_posts_path
-  end
-
-  def search
-    search_posts = Post.where("name LIKE ?", "%#{post_params[:name]}%")
-    @search_posts = search_posts.tagged_with(post_params[:tag_list], :match_all => false)
+    if @post.destroy
+      redirect_to admins_posts_path
+    else
+      render :index
+    end
   end
 
   private
@@ -76,5 +57,8 @@ class Admins::PostsController < ApplicationController
                                  images_attributes: [:image, :_destroy, :id]).merge(admin_id: current_admin.id)
   end
 
+  def post_find
+    @post = Post.find(params[:id])
+  end
 
 end

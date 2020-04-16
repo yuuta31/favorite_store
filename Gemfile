@@ -38,6 +38,8 @@ gem 'devise'
 gem 'acts-as-taggable-on', '6.5.0'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'bootstrap', '~> 4.3.1'
+gem 'pry-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
