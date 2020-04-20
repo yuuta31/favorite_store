@@ -1,30 +1,60 @@
-$pc: 1040px; 
-$sp: 740px; 
 
-@mixin pc {
-  @media (max-width: ($pc)) {
-    @content;
-  }
-}
-@mixin sp {
-  @media (max-width: ($sp)) {
-    @content;
+.image__section {
+  height: 400px;
+  margin-bottom: 5rem;
+  &--size {
+    width: 100%;
+    height: 400px;
   }
 }
 
-.post-index {
-  height: 100%;
-  width: 100%;
-  .image-section {
-    height: 450px;
-    &__size {
-      width: 100%;
-      height: 450px;
+
+.tag__section {
+  border: 1px solid gray;
+  margin: 0 auto;
+  &--search {
+    .tag-title {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        text-align: center;
+        width: 700px;
+        font-size: 24px;
+    }
+    .store_name {
+      width: 300px;
+      text-align: center;
+      // margin-bottom: 30px;
+      margin: 0 auto;
+      &-size {
+        display: inline-block;
+
+      }
+    }
+    .form_check-line {
+      display: inline-flex;
+      align-items: center;
+    }
+    .form_check-sub {
+      position: relative;
+      // display: block;
+      padding-left: 1.25rem;
+    }
+    .check_box {
+      margin-bottom: 30px;
+    }
+    .submit {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
+    .interested {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .space_submit {
+      margin-top: 30px;
     }
   }
-  .tag-section {
-    height: 300px;
-    width: 100%;
-    
-  }
 }
+

@@ -1,6 +1,18 @@
-@import "./reset";
+@import "color";
+@import "reset";
+
+/*
+*= require_tree .
+*= require_self
+*/
+
 @import "bootstrap";
-@import "./form.scss";
-@import "./color.scss";
-@import "./flash.scss";
-@import "./posts.scss";
+@import "form";
+@import "flash";
+@import "posts";
+
+
+.all-index {
+  height: 100%;
+  width: 100%;
+}
