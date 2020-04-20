@@ -1,3 +1,60 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.image__section {
+  height: 400px;
+  margin-bottom: 5rem;
+  &--size {
+    width: 100%;
+    height: 400px;
+  }
+}
+
+
+.tag__section {
+  border: 1px solid gray;
+  margin: 0 auto;
+  &--search {
+    .tag-title {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        text-align: center;
+        width: 700px;
+        font-size: 24px;
+    }
+    .store_name {
+      width: 300px;
+      text-align: center;
+      // margin-bottom: 30px;
+      margin: 0 auto;
+      &-size {
+        display: inline-block;
+
+      }
+    }
+    .form_check-line {
+      display: inline-flex;
+      align-items: center;
+    }
+    .form_check-sub {
+      position: relative;
+      // display: block;
+      padding-left: 1.25rem;
+    }
+    .check_box {
+      margin-bottom: 30px;
+    }
+    .submit {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
+    .interested {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .space_submit {
+      margin-top: 30px;
+    }
+  }
+}
+

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -14,18 +15,18 @@ Rails.application.routes.draw do
 
   # 管理者用
   namespace :admins do
-    resources :posts do
-      collection do
-        get  'search'
-        post 'search'
-      end
-    end
+    resources :posts, except: %i(new,show)
     resources :users, only: %i(index, destroy)#アカウントbanのため
   end
 
   # user用
   scope :users do
-    resources :posts, only: %i(index, show) do
+    resources :users , only: %i(show)
+    resources :posts , only: %i(index, show) do
+      collection do
+        get  'search'
+        post 'search'
+      end
       # resources :comments, only: %i(create)
       # resources :likes, only: %i(create,destroy)
       # member do

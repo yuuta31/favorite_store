@@ -13,12 +13,12 @@
 
   <body>
 
-    <div id="all-index">
+    <div class="all-index" id="all-index">
       <v-app>
-        <v-app-bar>
-          <v-app-bar-nav-icon></v-app-bar-nav-icon>
-          <v-toolbar-title>This is Header.vue</v-toolbar-title>
-        </v-app-bar>
+        <header>
+          <%= render 'layouts/notifications' %>
+          <%= render 'layouts/header' %>
+        </header>
         <%= yield %>
       </v-app> 
     </div>
