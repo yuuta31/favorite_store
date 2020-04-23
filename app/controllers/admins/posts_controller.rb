@@ -1,7 +1,7 @@
 class Admins::PostsController < ApplicationController
   before_action :admin_user
-  before_action :all_tags , only: %i(edit)
-  before_action :post_find , only: %i(edit,update,destroy)
+  before_action :all_tags , only: %i(index edit)
+  before_action :post_find , only: %i(edit update destroy)
 
   def index
     @post = Post.new 
@@ -12,7 +12,6 @@ class Admins::PostsController < ApplicationController
     else
       @posts = Post.all #.includes(:image)
     end
-    @tags = ActsAsTaggableOn::Tag.all
   end
 
   def create

@@ -15,20 +15,20 @@ Rails.application.routes.draw do
 
   # 管理者用
   namespace :admins do
-    resources :posts, except: %i(new,show)
-    resources :users, only: %i(index, destroy)#アカウントbanのため
+    resources :posts, except: %i(new show)
+    resources :users, only: %i(index destroy)#アカウントbanのため
   end
 
   # user用
   scope :users do
     resources :users , only: %i(show)
-    resources :posts , only: %i(index, show) do
+    resources :posts , only: %i(index show) do
       collection do
         get  'search'
         post 'search'
       end
       # resources :comments, only: %i(create)
-      # resources :likes, only: %i(create,destroy)
+      # resources :likes, only: %i(create destroy)
       # member do
       #   post "add", to: "clips#create"
       # end

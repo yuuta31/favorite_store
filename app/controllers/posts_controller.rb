@@ -11,10 +11,10 @@ class PostsController < ApplicationController
       @posts = Post.all
     end
 
-    @aaa_posts = Post.tagged_with("aaa")
-    @bbb_posts = Post.tagged_with("bbb")
-    @ccc_posts = Post.tagged_with("ccc")
-    @ddd_posts = Post.tagged_with("ddd")
+    @aaa_posts = Post.tagged_with("aaa").order('created_at DESC').limit(4)
+    @bbb_posts = Post.tagged_with("bbb").order('created_at DESC').limit(4)
+    @ccc_posts = Post.tagged_with("ccc").order('created_at DESC').limit(4)
+    @ddd_posts = Post.tagged_with("ddd").order('created_at DESC').limit(4)
 
   end
 
