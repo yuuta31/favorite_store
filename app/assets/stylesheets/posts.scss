@@ -23,7 +23,6 @@
     .store_name {
       width: 300px;
       text-align: center;
-      // margin-bottom: 30px;
       margin: 0 auto;
       &-size {
         display: inline-block;
@@ -36,7 +35,6 @@
     }
     .form_check-sub {
       position: relative;
-      // display: block;
       padding-left: 1.25rem;
     }
     .check_box {
@@ -55,6 +53,69 @@
     .space_submit {
       margin-top: 30px;
     }
+  }
+}
+
+.all_store {
+  height: 350px;
+  width: 100%;
+  margin-top: 100px;
+  &-recommend {
+    margin: 0 auto;
+    height: 400px;
+    width: 85%;
+    .space {
+      margin: 0 10%;
+      background-color: gray;
+      .left {
+      }
+      .store_adjust {
+        margin-bottom: 20px;
+      }
+      .right {
+        padding-top: 30px;
+      }
+      .separate_store {
+        height: 230px;
+        width: 17%;
+        position: relative;
+        background-color: white;
+        display: inline-block;
+        margin-left: 6.3%;
+        &-list {
+          
+          .image_list {
+            height: 115px;
+            &-size {
+              height: 100%;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer-adjust {
+  margin-bottom: 70px;
+}
+
+.footer {
+  background-color: gray;
+  margin-top: 30px;
+  height: 200px;
+  width: 100%;
+  &_nav {
+    text-align: center;
+    margin-top: 70px;
+    .footer_list {
+      display: inline-block;
+      padding: 0 40px;
+    }
+  }
+  &_copy {
+    text-align: center;
   }
 }
 
