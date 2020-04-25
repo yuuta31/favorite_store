@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :all_tags , only: %i(index)
-  before_action :tag_search ,only: %i(search)
+  before_action :post_find , only: %i(show)
 
   def index
     @post = Post.new 
@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     if params[:tag]
       @posts = Post.tagged_with(params[:tag])
     else
-      @posts = Post.all
+      @posts = Post.all.includes(:images)
     end
 
     @aaa_posts = Post.tagged_with("aaa").order('created_at DESC').limit(4)
@@ -19,6 +19,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comment = @post.comments.new
+
+    @comments = @post.comments.includes(:user)
   end
 
   def search
@@ -34,10 +37,6 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(tag_list:[])
-  end
-
-  def tag_search
-
   end
   
 end

@@ -13,5 +13,9 @@ class ApplicationController < ActionController::Base
   def all_tags
     @tags = ActsAsTaggableOn::Tag.all
   end
+
+  def post_find
+    @post = Post.find(params[:id])
+  end
   
 end
