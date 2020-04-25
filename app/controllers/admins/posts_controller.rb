@@ -10,7 +10,7 @@ class Admins::PostsController < ApplicationController
     if params[:tag]
       @posts = Post.tagged_with(params[:tag])
     else
-      @posts = Post.all #.includes(:image)
+      @posts = Post.all.includes(:images)
     end
   end
 
@@ -54,10 +54,6 @@ class Admins::PostsController < ApplicationController
                                  :store_url,
                                  tag_list: [], 
                                  images_attributes: [:image, :_destroy, :id]).merge(admin_id: current_admin.id)
-  end
-
-  def post_find
-    @post = Post.find(params[:id])
   end
 
 end

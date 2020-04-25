@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   belongs_to :admin
   acts_as_taggable
+  has_many :comments
 
   validates :name, presence: true
   validates :payment, presence: true

@@ -27,7 +27,7 @@ Rails.application.routes.draw do
         get  'search'
         post 'search'
       end
-      # resources :comments, only: %i(create)
+      resources :comments, only: %i(create)
       # resources :likes, only: %i(create destroy)
       # member do
       #   post "add", to: "clips#create"
