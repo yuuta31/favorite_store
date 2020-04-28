@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :all_tags , only: %i(index)
+  before_action :all_tags  , only: %i(index)
   before_action :post_find , only: %i(show)
 
   def index
@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 
   def show
     @comment = @post.comments.new
-
+    @like = Like.new
     @comments = @post.comments.includes(:user)
   end
 

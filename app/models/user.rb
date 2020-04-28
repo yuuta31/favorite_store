@@ -5,7 +5,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :comments
+  has_many :posts, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
+  has_many :posts, dependent: :destroy
+  has_many :bookmark_posts, through: :bookmarks, source: :post
 
   validates :nickname, presence: true,length: { maximum: 6 }
   validates :image, uniqueness: true, allow_nil: true
+
+  def already_liked?(post)
+    self.likes.exists?(post_id: post.id)
+  end
+
 end
