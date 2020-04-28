@@ -20,13 +20,14 @@
           <%= render 'layouts/header' %>
         </header>
         <%= yield %>
-      </v-app> 
+      </v-app>
     </div>
 
     <%= javascript_pack_tag 'index'%>
     <%= stylesheet_pack_tag 'index'%>
+
     <!-- 評価javascript -->
-    <script>
+    <script type="application/javascript">
       $('#star').raty({
         size     : 36,
         starOff:  '<%= asset_path('star-off.png') %>',
@@ -35,6 +36,6 @@
         scoreName: 'comment[rate]',
         half: true,
       });
-    </script> 
+    </script>
   </body>
 </html>
