@@ -2,9 +2,6 @@
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm">
     <%= link_to("favorite store", root_path, {class: "my-0 mr-md-auto font-weight-normal"}) %>
     <nav class="my-2 my-md-0 mr-md-3">
-      <%= link_to("管理者ログイン", new_admin_session_path, {class: "p-2 text-dark"}) %>
-      <%= link_to("ログイン", new_user_session_path, {class: "p-2 text-dark"}) %>
-      
       <% if admin_signed_in? && current_admin.administrator?%>
         <%= link_to("管理者ログアウト", destroy_admin_session_path, {method: :delete , class: "p-2 text-dark"}) %>
         <%= link_to("管理者投稿", admins_posts_path, {class: "p-2 text-dark"}) %>
@@ -14,6 +11,6 @@
         <%= link_to("マイページ", "/users/users/#{current_user.id}", {class: "p-2 text-dark"}) %>
       <% end %>
     </nav>
-    <%= link_to("新規登録", new_user_registration_path, {class: "btn btn-outline-primary"}) %>
+    <%= link_to("はじめる", logins_path, {class: "btn btn-outline-primary"}) %>
   </div>
 </div>
