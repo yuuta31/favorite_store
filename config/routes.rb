@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'bookmarks/create'
+  get 'bookmarks/destroy'
+  get 'users/show'
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -28,8 +31,12 @@ Rails.application.routes.draw do
       end
       resources :comments, only: %i(create destroy)
       resources :likes, only: %i(create destroy)
+      # member do
+      #   post "add", to: "clips#create"
+      # end
       resources :bookmarks, only: %i(create destroy)
     end
+    # resources :clips, only: %i(destroy)
   end
 
   # vue.js用

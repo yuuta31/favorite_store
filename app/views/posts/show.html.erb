@@ -22,14 +22,14 @@
 
   <div class="comments">
     <h4>＜コメント一覧＞</h4>
-    <% if @comments && user_signed_in? %>
+    <% if @comments %>
       <% @comments.each do |comment| %>
         <p>
           <strong><%= link_to comment.user.nickname, "users/users/#{comment.user_id}" %>：</strong>
           <%= comment.title %>
           <%= comment.text %>
           <div id="star-rate-<%= comment.id %>"></div>
-          <% if user_signed_in? && current_user.id == comment.user_id %>
+          <% if admin_signed_in? || user_signed_in? && current_user.id == comment.user_id || current_admin %>
             <%=link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete %>
           <% end %>
         </p>
@@ -45,8 +45,10 @@
             score: '<%= comment.rate %>',
           });
         </script>
+
       <% end %>
     <% end %>
+  </div>
 
   <h3>いいね件数: <%= @post.likes.count %></h3>
   <% if user_signed_in? && current_user.already_liked?(@post) %>
