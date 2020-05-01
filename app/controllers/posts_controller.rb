@@ -22,6 +22,8 @@ class PostsController < ApplicationController
     @comment = @post.comments.new
     @like = Like.new
     @comments = @post.comments.includes(:user)
+    @bookmark = Bookmark.new
+    @bookmarks = Bookmark.where(user_id: current_user).all
   end
 
   def search
