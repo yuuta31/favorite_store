@@ -21,8 +21,6 @@ class PostsController < ApplicationController
   def show
     @comment = @post.comments.new
     @like = Like.new
-    @bookmark = Bookmark.new
-    @bookmarks = Bookmark.where(user_id: current_user).all
     @comments = @post.comments.includes(:user)
   end
 
@@ -39,6 +37,6 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(tag_list:[])
-  end  
-
+  end
+  
 end
