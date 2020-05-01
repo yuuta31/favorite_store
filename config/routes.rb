@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'bookmarks/create'
-  get 'bookmarks/destroy'
-  get 'users/show'
+
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -23,6 +21,7 @@ Rails.application.routes.draw do
 
   # user用
   scope :users do
+    resources :logins, only: %i(index)
     resources :users , only: %i(show)
     resources :posts , only: %i(index show) do
       collection do
