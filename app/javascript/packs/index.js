@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import vuetify from 'packs/vuetify' // path to vuetify export
 
-new Vue({
+const app = new Vue({
   vuetify,
   data () {
     return {
