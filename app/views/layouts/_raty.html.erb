@@ -1,0 +1,16 @@
+<script type="application/javascript">
+  $(document).on('turbolinks:load', function() {
+    $('#star').raty({
+      size     : 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      scoreName: 'comment[rate]',
+      half: true,
+    });
+  });
+  history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
+  window.addEventListener('popstate', function(e) {
+    window.location.reload();
+  });
+</script>

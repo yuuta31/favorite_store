@@ -1,0 +1,38 @@
+= image_tag @post.images.first.image.url, size: "213x260" 
+= @post.name 
+
+
+.container
+  - if current_user 
+    = form_for [@post , @comment] do |f| 
+      = f.text_field :title, class: "form-control"
+
+      .form-group.row#star
+        = f.label :rate,'評価 ', class:'col-md-3 col-form-label'
+        = f.hidden_field :rate, id: :review_star
+
+      = f.text_area :text, placeholder: "コメントする", rows: "2"
+      = f.submit "SEND"
+  - else
+    %p コメントの投稿には新規登録/ログインが必要です
+
+= render 'posts/show_raty', comments: @comments
+
+%h3 いいね件数:
+= @post.likes.count
+- if user_signed_in? && current_user.already_liked?(@post) 
+  = link_to 'いいねを取り消す', post_like_path(@post),{ method: :delete }
+- elsif current_user 
+  = link_to 'いいね', post_likes_path(@post)
+- else
+  %p redirect_to
+
+%p aaaaaa
+
+%h3 お気に入り
+- if user_signed_in? && current_user.already_booked?(@post)
+  = link_to 'お気に入りを取り消す', post_bookmark_path(@post),{ method: :delete }
+- elsif current_user
+  = link_to 'お気に入り', post_bookmarks_path(@post)
+- else
+  %p redirect_to

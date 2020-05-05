@@ -16,6 +16,7 @@ class PostsController < ApplicationController
     @ccc_posts = Post.tagged_with("ccc").order('created_at DESC').limit(4)
     @ddd_posts = Post.tagged_with("ddd").order('created_at DESC').limit(4)
 
+    @index = Post.all
   end
 
   def show
