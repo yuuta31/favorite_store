@@ -23,7 +23,10 @@ class PostsController < ApplicationController
     @comment = @post.comments.new
     @like = Like.new
     @comments = @post.comments.includes(:user)
+    @stars = Comment.where(id: @post.id)
     @bookmark = Bookmark.new
+    @count = Comment.where(post_id: @post.id)
+    @image = Image.where(post_id: @post.id).all
   end
 
   def search

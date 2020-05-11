@@ -17,10 +17,6 @@
           = f.submit "検索" , class: 'submit btn btn-outline-primary'
         %span.space_submit
 
-
-
-
-
   .all_store
     .all_store-recommend
       .space
@@ -108,23 +104,4 @@
     .footer_copy
       %p aaaaaa
 
-
--# .container.js-postsIndex
--#   .row
--#     - @posts.each do |post|
--#       .col.s4.m6
--#         .card
--#           %span.card-title{'v-on:click': "setPostInfo(#{post.id})"}
--#             = post.name
-
--#   .row{'v-show': 'postInfoBool'}
--#     .col.s12.m12
--#       .card.blue-grey.darken-1
--#         .card-content.white-text
--#           %p {{ postInfo.name }}
-
-#hello
-  {{ message }}
-
-= javascript_pack_tag 'hello_vue'
 = javascript_pack_tag 'posts/index'
