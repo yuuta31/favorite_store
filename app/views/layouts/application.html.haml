@@ -7,8 +7,12 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    %link{href: "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900", rel: "stylesheet"}
+    %link{href: "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"    , rel: "stylesheet"}
     %link{href: "https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css", rel: "stylesheet"}
+
+    %link{href: "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css"   , rel: "stylesheet"}
+
+    %script{type: "application/javascript", src: "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"}
   %body
     .all-index
       %header
