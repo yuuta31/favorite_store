@@ -2,6 +2,9 @@
   .left_side-space
     .left_side-img
       = image_tag @post.images.first.image.url, class: "show_image"
+      - @image.each do |image|
+        %a{ href: "#{image.image.url}" , data: {lightbox: "group"} }
+          = image_tag image.image.url
     .show_title 
       = @post.name
     %div{id: "star-rate-#{@post.id}"}
