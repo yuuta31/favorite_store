@@ -12,13 +12,16 @@
 
 .tag__section {
   border: 1px solid gray;
+  height: 320px;
   margin: 0 auto;
+  text-align: center;
   &--search {
     .tag-title {
       padding-top: 30px;
       padding-bottom: 30px;
       text-align: center;
       font-size: 24px;
+
     }
     .store_name {
       width: 300px;
@@ -55,6 +58,8 @@
     }
   }
 }
+
+
 
 .all_store {
   height: 350px;
@@ -105,6 +110,7 @@
 }
 
 .footer {
+  clear: both;
   background-color: gray;
   margin-top: 30px;
   height: 200px;
@@ -126,35 +132,71 @@
 // show------------------
 
 .show_image {
-  width: 60%;
+  width: 80%;
   height: 30%;
 }
 
-.left_side {
-  
-  float: left;
-  background-color: gray;
-  width: 70%;
-  &-space {
-    margin-left: 20%;
-    margin-top: 50px;
-    &-img {
-      width: 60%;
-      
+.post_show_index {
+  .left_side {
+    height: 100%;
+    width: 65%;
+    float: left;
+    background-color: gray;
+    width: 65%;
+    &-space {
+      margin-left: 25%;
+      margin-top: 50px;
+      &-img {
+        width: 60%;
+        
+      }
+      .all_photo {
+        margin-top: 30px;
+      }
+      .show_title {
+        margin-top: 40px;
+        font-size: 30px;
+      }
+      .star_average {
+        margin-top: 30px;
+      }
+      .post_top_info {
+        margin-top: 8px;
+      }
+      .post_relative_tag {
+        margin-top: 8px;
+      }
+      .side_by_side {
+        display: inline-block;
+      }
+      .show_container {
+        width: 50%;
+        margin-top: 40px;
+        .form_space {
+          margin-bottom: 10px;
+        }
+        .btn_adjust {
+          margin-top: 20px;
+        }
+      }
+      .comments {
+        margin-top: 30px;
+        width: 35%;
+        .comment_border {
+          border: 1px solid gray;
+        }
+      }
     }
-    .show_title {
-      margin-top: 40px;
-      font-size: 30px;
-    }
+
   }
 
+  .right_side {
+    height: 100%;
+    width: 35%;
+    float: right;
+    background-color: greenyellow;
+  }
 }
 
-.right_side {
-  
-  width: 30%;
-  float: right;
-  background-color: greenyellow;
-}
 
 

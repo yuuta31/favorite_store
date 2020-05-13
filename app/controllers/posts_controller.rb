@@ -3,13 +3,12 @@ class PostsController < ApplicationController
   before_action :post_find , only: %i(show)
 
   def index
-    @post = Post.new 
-
     if params[:tag]
-      @posts = Post.tagged_with(params[:tag])
+      @posts = Post.tagged_with(params[:tag_list])
     else
       @posts = Post.all.includes(:images)
     end
+    @post = Post.new
 
     @aaa_posts = Post.tagged_with("aaa").order('created_at DESC').limit(4)
     @bbb_posts = Post.tagged_with("bbb").order('created_at DESC').limit(4)
@@ -41,7 +40,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(tag_list:[])
+    params.require(:post).permit(:name, tag_list:[])
   end
   
 end

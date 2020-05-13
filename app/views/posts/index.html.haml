@@ -1,22 +1,10 @@
+.image__section
+  = image_tag 'patrick-tomasso-GXXYkSwndP4-unsplash' , class: "image__section--size"
+
+.tag__section
+  = render 'tag_section', post: @post , tags: @tags
+
 .js-postsIndex
-  .image__section
-    = image_tag 'patrick-tomasso-GXXYkSwndP4-unsplash' , class: "image__section--size"
-
-  .tag__section
-    .tag__section--search
-      .tag-title
-        = form_for [@post] , url: {controller: 'posts', action: 'search'} do |f|
-          .store_name
-            = f.label :store , class: 'store_name-size'
-            = f.text_field :name, class: 'store_name-size form-control'
-          %br
-          .form_check-line.form_check-sub.form-check-inline.check_box
-            - @tags.each do |tag|
-              = f.check_box :tag_list , multiple: true
-              = f.label " #{tag.name}(#{tag.taggings_count})" , class: 'interested'
-          = f.submit "検索" , class: 'submit btn btn-outline-primary'
-        %span.space_submit
-
   .all_store
     .all_store-recommend
       .space
@@ -98,10 +86,6 @@
         .card-content.white-text
           %p {{ postInfo.name }}
 
-  .footer
-    .footer_nav
-      .footer_list aaa
-    .footer_copy
-      %p aaaaaa
+
 
 = javascript_pack_tag 'posts/index'

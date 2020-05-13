@@ -2,17 +2,16 @@
   <h4>＜コメント一覧＞</h4>
   <% if comments %>
     <% comments.each do |comment| %>
-      <p>
+      <p class="comment_border">
         <strong><%= link_to comment.user.nickname, "users/users/#{comment.user_id}" %>：</strong>
         <%= comment.title %>
+        <div id="star-rate-<%= comment.id %>"></div>
         <%= comment.text %>
         <div id="star-rate-<%= comment.id %>"></div>
         <% if admin_signed_in? || user_signed_in? && current_user.id == comment.user_id || current_admin %>
           <%=link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete %>
         <% end %>
       </p>
-
-      
       <script type="application/javascript">
         $(document).on('turbolinks:load', function() {
           $('#star-rate-<%= comment.id %>').raty({
@@ -26,7 +25,6 @@
           });
         });
       </script>
-
     <% end %>
   <% end %>
 </div>
