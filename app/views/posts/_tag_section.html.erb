@@ -1,0 +1,18 @@
+<div class="tag__section--search">
+  <div class="tag-title">検索</div>
+    <%= form_for(post, url: {controller: 'posts', action: 'search' }) do |f| %>
+      <div class="store_name">
+        <%= f.label :name , class: 'store_name-size'%>
+        <%= f.text_field :name , class: 'store_name-size form-control' %>
+      </div>
+      <br>
+      <div class="form_check-line form_check-sub form-check-inline check_box">
+        <% tags.each do |tag| %>
+          <%= f.check_box :tag_list , { multiple: true , class: 'interested' }, "#{tag.name}", nil %>
+          <%= f.label " #{tag.name}(#{tag.taggings_count})", class: 'interested'%>
+        <% end %>
+      </div>
+      <%= f.submit "検索", class: 'submit btn btn-outline-primary' %>
+    <% end %>
+  </div>
+</div>
