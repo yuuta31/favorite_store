@@ -1,3 +1,15 @@
-- @search_posts.each do |post|
-  = post.name
-  = raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(' '))
+.all_store
+  .all_store-recommend
+    .space
+      %p.left.store_adjust #aaaタグ
+      - @search_posts.each do |post|
+        .separate_store
+          .separate_store-list
+            .image_list
+              = image_tag post.images.first.image.url , class: "image_list-size"
+            = link_to "#{post.name}", post_path(post) , data: {"turbolinks": false}
+            = post.liked_users.count
+
+.search_index
+  .search_index-post
+    
