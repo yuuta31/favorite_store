@@ -186,6 +186,9 @@
           border: 1px solid gray;
         }
       }
+      .another_info {
+        display: block;
+      }
     }
 
   }
@@ -195,8 +198,24 @@
     width: 35%;
     float: right;
     background-color: greenyellow;
+    .first_tag {
+      margin-top: 30px;
+      .tag_block {
+        display: block;
+      }
+    }
   }
 }
 
 
+// search ---------------
 
+.search_index {
+  height: 100%;
+  width: 100%;
+  .search_post {
+    height: 100%;
+    width: 70%;
+    background-color: gray;
+  }
+}

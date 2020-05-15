@@ -26,6 +26,11 @@ class PostsController < ApplicationController
     @bookmark = Bookmark.new
     @count = Comment.where(post_id: @post.id)
     @image = Image.where(post_id: @post.id).all
+
+    @aaa_posts = Post.tagged_with("aaa").order('created_at DESC').limit(3)
+    @bbb_posts = Post.tagged_with("bbb").order('created_at DESC').limit(3)
+    @ccc_posts = Post.tagged_with("ccc").order('created_at DESC').limit(3)
+    @ddd_posts = Post.tagged_with("ddd").order('created_at DESC').limit(3)
   end
 
   def search

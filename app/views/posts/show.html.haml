@@ -13,13 +13,13 @@
       = render 'posts/average', post: @post , stars: @stars
       .like_title.side_by_side
         = @post.likes.count
-        - if user_signed_in? && current_user.already_liked?(@post) 
+        - if admin_signed_in? || user_signed_in? && current_admin.already_liked?(@post) || current_user.already_liked?(@post) 
           = link_to 'いいねを取り消す', post_like_path(@post),{ method: :delete }
-        - elsif current_user 
+        - elsif current_user || current_admin
           = link_to 'いいね', post_likes_path(@post),{ method: :post }
         - else
           %p redirect_to
-        - if user_signed_in? && current_user.already_booked?(@post)
+        - if admin_signed_in? || user_signed_in? && current_admin.already_booked?(@post) || current_user.already_booked?(@post)
           = link_to 'お気に入りを取り消す', post_bookmark_path(@post),{ method: :delete }
         - elsif current_user
           = link_to 'お気に入り', post_bookmarks_path(@post),{ method: :post }
@@ -48,8 +48,35 @@
       
       = render 'posts/show_raty', comments: @comments , star: @star
 
-      = @post.place
-      = @post.rest_day
-      = @post.store_url
+      .another_info
+        = @post.place
+      .another_info
+        = @post.rest_day
+      .another_info
+        = @post.store_url
 
-  .right_side aaa
+  .right_side
+    .first_tag #aaa
+    - @aaa_posts.each do |p|
+      .tag_block
+        = image_tag p.images.first.image.url, size: "100x100"
+        = p.name
+        %hr
+    .first_tag #bbb
+    - @bbb_posts.each do |p|
+      .tag_block
+        = image_tag p.images.first.image.url, size: "100x100"
+        = p.name
+        %hr
+    .first_tag #ccc
+    - @bbb_posts.each do |p|
+      .tag_block
+        = image_tag p.images.first.image.url, size: "100x100"
+        = p.name
+        %hr
+    .first_tag #ddd
+    - @ddd_posts.each do |p|
+      .tag_block
+        = image_tag p.images.first.image.url, size: "100x100"
+        = p.name
+        %hr

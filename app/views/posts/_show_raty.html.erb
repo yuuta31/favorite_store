@@ -12,6 +12,7 @@
           <%=link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete %>
         <% end %>
       </p>
+      <hr>
       <script type="application/javascript">
         $(document).on('turbolinks:load', function() {
           $('#star-rate-<%= comment.id %>').raty({
