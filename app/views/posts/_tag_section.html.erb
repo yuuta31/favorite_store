@@ -1,6 +1,6 @@
 <div class="tag__section--search">
   <div class="tag-title">検索</div>
-    <%= form_for(post, url: {controller: 'posts', action: 'search' }) do |f| %>
+    <%= form_for(post, url: {controller: 'posts', action: 'search' }, html: {method: 'GET'}) do |f| %>
       <div class="store_name">
         <%= f.label :name , class: 'store_name-size'%>
         <%= f.text_field :name , class: 'store_name-size form-control' %>

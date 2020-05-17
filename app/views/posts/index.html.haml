@@ -17,7 +17,9 @@
                   = image_tag post.images.first.image.url , class: "image_list-size"
                 = link_to "#{post.name}", post_path(post) , data: {"turbolinks": false}
                 = post.liked_users.count
-        %p.right リンク
+                - if admin_signed_in? && current_admin.administrator?
+                  = link_to("削除", admins_post_path(post), method: :delete)
+        %p.right
 
   .row{'v-show': 'postInfoBool'}
     .col.s12.m12
@@ -37,7 +39,7 @@
                   = image_tag post.images.first.image.url , class: "image_list-size"
                 = link_to "#{post.name}", post_path(post) , data: {"turbolinks": false}
                 = post.liked_users.count
-        %p.right リンク
+        %p.right
 
   .row{'v-show': 'postInfoBool'}
     .col.s12.m12
@@ -57,7 +59,7 @@
                   = image_tag post.images.first.image.url , class: "image_list-size"
                 = link_to "#{post.name}", post_path(post) , data: {"turbolinks": false}
                 = post.liked_users.count
-        %p.right リンク
+        %p.right
 
   .row{'v-show': 'postInfoBool'}
     .col.s12.m12
@@ -78,7 +80,7 @@
                   = image_tag post.images.first.image.url , class: "image_list-size"
                 = link_to "#{post.name}", post_path(post) , data: {"turbolinks": false}
                 = post.liked_users.count
-        %p.right リンク
+        %p.right
 
   .row{'v-show': 'postInfoBool'}
     .col.s12.m12

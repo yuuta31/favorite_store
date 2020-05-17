@@ -1,5 +1,7 @@
 @import "color";
 @import "reset";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 /*
 *= require_tree .
@@ -11,6 +13,8 @@
 @import "flash";
 @import "posts";
 @import "logins";
+@import "users";
+@import "admin";
 
 
 // .all-index {

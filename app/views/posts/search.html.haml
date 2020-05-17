@@ -1,15 +1,9 @@
-.all_store
-  .all_store-recommend
-    .space
-      %p.left.store_adjust #aaaタグ
-      - @search_posts.each do |post|
-        .separate_store
-          .separate_store-list
-            .image_list
-              = image_tag post.images.first.image.url , class: "image_list-size"
-            = link_to "#{post.name}", post_path(post) , data: {"turbolinks": false}
-            = post.liked_users.count
-
 .search_index
   .search_index-post
-    
+    - @search_posts.each do |post|
+      .tag_store
+        .tag_store-list
+          .tag_image
+            = image_tag post.images.first.image.url , class: "search_image"
+          = link_to "#{post.name}", post_path(post) , data: {"turbolinks": false}
+          = post.liked_users.count
