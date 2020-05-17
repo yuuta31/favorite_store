@@ -4,8 +4,8 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   belongs_to :admin
   acts_as_taggable
-  has_many :comments
-  has_many :likes
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
   has_many :bookmarks, dependent: :destroy
 

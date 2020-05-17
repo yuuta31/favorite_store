@@ -1,5 +1,10 @@
-%h2 お気に入りリスト
-- @bookmarks.each do |b| 
-- post = Post.find(b.post_id)
-  = link_to post.name, post_path(post), data: {"turbolinks": false}
-  = image_tag post.images.first.image.url , class: "image_list-size"
+.mypage ブックマーク一覧
+.search_index
+  .search_index-post
+    - @bookmarks.each do |b| 
+    - post = Post.find(b.post_id)
+      .tag_store
+        .tag_store-list
+          .tag_image
+            = image_tag post.images.first.image.url , class: "search_image"
+          = link_to post.name, post_path(post), data: {"turbolinks": false}
