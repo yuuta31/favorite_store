@@ -11,8 +11,6 @@ const app = new Vue({
   data: {
     postInfo: {},
     postInfoBool: false,
-    me: "aaaaa"
-
   },
   methods: {
     setPostInfo(id){

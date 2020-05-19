@@ -12,26 +12,32 @@
       %div{id: "star-rate-#{@post.id}" , class: "star_average side_by_side"}
       = render 'posts/average', post: @post , stars: @stars
       .like_title.side_by_side
-        = @post.likes.count
-        - if admin_signed_in? || user_signed_in? && current_admin.already_liked?(@post) || current_user.already_liked?(@post) 
-          = link_to 'いいねを取り消す', post_like_path(@post),{ method: :delete }
+        - if admin_signed_in? || user_signed_in? && current_user.already_liked?(@post) 
+          = link_to post_like_path(@post),{ method: :delete } do
+            %i.fas.fa-heart
         - elsif current_user || current_admin
-          = link_to 'いいね', post_likes_path(@post),{ method: :post }
+          = link_to post_likes_path(@post),{ method: :post } do
+            %i.far.fa-heart
         - else
-          %p redirect_to
-        - if admin_signed_in? || user_signed_in? && current_admin.already_booked?(@post) || current_user.already_booked?(@post)
-          = link_to 'お気に入りを取り消す', post_bookmark_path(@post),{ method: :delete }
+          = link_to logins_path do
+            %i.far.fa-heart
+        = @post.likes.count
+        - if admin_signed_in? || user_signed_in? && current_user.already_booked?(@post)
+          = link_to post_bookmark_path(@post),{ method: :delete } do
+            %i.fas.fa-bookmark
         - elsif current_user
-          = link_to 'お気に入り', post_bookmarks_path(@post),{ method: :post }
+          = link_to post_bookmarks_path(@post),{ method: :post } do
+            %i.far.fa-bookmark
         - else
-          %p redirect_to
+          = link_to logins_path do
+            %i.far.fa-bookmark
+        = @bookmarks.count
       .comment_count.side_by_side
-        = @count.count
       %br
       .post_top_info
         = @post.station
+      .post_top_info
         = @post.open_time
-        = @post.liked_users.count
       .post_relative_tag
         = raw(@post.tag_list.map { |t| link_to t, tag_path(t) }.join(' '))
       .show_container
@@ -43,16 +49,20 @@
               = f.hidden_field :rate, id: :review_star
             = f.text_area :text, placeholder: "コメントする", rows: "2", class: "form-control"
             = f.submit "SEND", class: 'btn btn-primary btn_adjust'
-        - else
-          %p コメントの投稿には新規登録/ログインが必要です
       
       = render 'posts/show_raty', comments: @comments , star: @star
-
+      
+      %h2.info 基本情報
       .another_info
+        .another_info-title1 住所
         = @post.place
+      %hr
       .another_info
+        .another_info-title2 定休日
         = @post.rest_day
+      %hr
       .another_info
+        .another_info-title3 ホームページ
         = @post.store_url
 
   .right_side
@@ -60,23 +70,39 @@
     - @aaa_posts.each do |p|
       .tag_block
         = image_tag p.images.first.image.url, size: "100x100"
-        = p.name
+        = link_to "#{p.name}", post_path(p) , data: {"turbolinks": false}
+        = icon("fas", "far fa-heart")
+        = p.liked_users.count
+        = icon("fas", "comment")
+        = p.comments.count
         %hr
     .first_tag #bbb
     - @bbb_posts.each do |p|
       .tag_block
         = image_tag p.images.first.image.url, size: "100x100"
-        = p.name
+        = link_to "#{p.name}", post_path(p) , data: {"turbolinks": false}
+        = icon("fas", "far fa-heart")
+        = p.liked_users.count
+        = icon("fas", "comment")
+        = p.comments.count
         %hr
     .first_tag #ccc
     - @bbb_posts.each do |p|
       .tag_block
         = image_tag p.images.first.image.url, size: "100x100"
-        = p.name
+        = link_to "#{p.name}", post_path(p) , data: {"turbolinks": false}
+        = icon("fas", "far fa-heart")
+        = p.liked_users.count
+        = icon("fas", "comment")
+        = p.comments.count
         %hr
     .first_tag #ddd
     - @ddd_posts.each do |p|
       .tag_block
         = image_tag p.images.first.image.url, size: "100x100"
-        = p.name
+        = link_to "#{p.name}", post_path(p) , data: {"turbolinks": false}
+        = icon("fas", "far fa-heart")
+        = p.liked_users.count
+        = icon("fas", "comment")
+        = p.comments.count
         %hr

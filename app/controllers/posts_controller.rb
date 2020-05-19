@@ -16,6 +16,8 @@ class PostsController < ApplicationController
     @ddd_posts = Post.tagged_with("ddd").order('created_at DESC').limit(4)
 
     @index = Post.all
+    
+    @count = Comment.where(post_id: @post.id)
   end
 
   def show
@@ -24,13 +26,14 @@ class PostsController < ApplicationController
     @comments = @post.comments.includes(:user)
     @stars = Comment.where(id: @post.id)
     @bookmark = Bookmark.new
+    @bookmarks = Bookmark.where(post_id: @post.id).all
     @count = Comment.where(post_id: @post.id)
     @image = Image.where(post_id: @post.id).all
 
-    @aaa_posts = Post.tagged_with("aaa").order('created_at DESC').limit(3)
-    @bbb_posts = Post.tagged_with("bbb").order('created_at DESC').limit(3)
-    @ccc_posts = Post.tagged_with("ccc").order('created_at DESC').limit(3)
-    @ddd_posts = Post.tagged_with("ddd").order('created_at DESC').limit(3)
+    @aaa_posts = Post.tagged_with("aaa").order('created_at DESC').limit(2)
+    @bbb_posts = Post.tagged_with("bbb").order('created_at DESC').limit(2)
+    @ccc_posts = Post.tagged_with("ccc").order('created_at DESC').limit(2)
+    @ddd_posts = Post.tagged_with("ddd").order('created_at DESC').limit(2)
   end
 
   def search
@@ -45,7 +48,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:name, tag_list:[])
+    params.require(:post).permit(tag_list:[])
   end
   
 end

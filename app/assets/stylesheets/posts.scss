@@ -12,7 +12,7 @@
 
 .tag__section {
   border: 1px solid gray;
-  height: 320px;
+  height: 270px;
   margin: 0 auto;
   text-align: center;
   &--search {
@@ -82,7 +82,7 @@
         padding-top: 30px;
       }
       .separate_store {
-        height: 230px;
+        height: 180px;
         width: 17%;
         position: relative;
         background-color: white;
@@ -103,6 +103,15 @@
       }
     }
   }
+}
+
+.show_info {
+  
+  text-align: center;
+}
+
+.adjust_down {
+  margin-bottom: 7%;
 }
 
 .footer-adjust {
@@ -162,6 +171,8 @@
       }
       .post_top_info {
         margin-top: 8px;
+        display: inline-block;
+        margin-right: 3%;
       }
       .post_relative_tag {
         margin-top: 8px;
@@ -186,8 +197,24 @@
           border: 1px solid gray;
         }
       }
+      .info {
+        margin-top: 50px;
+      }
       .another_info {
         display: block;
+        margin-top: 10px;
+        &-title1{
+          display: inline-block;
+          margin-right: 30%;
+        }
+        &-title2 {
+          display: inline-block;
+          margin-right: 27%;
+        }
+        &-title3 {
+          display: inline-block;
+          margin-right: 20%;
+        }
       }
     }
 
