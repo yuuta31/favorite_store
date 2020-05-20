@@ -13,24 +13,24 @@
       = render 'posts/average', post: @post , stars: @stars
       .like_title.side_by_side
         - if admin_signed_in? || user_signed_in? && current_user.already_liked?(@post) 
-          = link_to post_like_path(@post),{ method: :delete } do
-            %i.fas.fa-heart
+          = link_to post_like_path(@post),{ method: :delete, class:"text-deco"} do
+            %i.fas.fa-heart.unlike-btn
         - elsif current_user || current_admin
-          = link_to post_likes_path(@post),{ method: :post } do
-            %i.far.fa-heart
+          = link_to post_likes_path(@post),{ method: :post, class:"text-deco"} do
+            %i.far.fa-heart.like-btn
         - else
           = link_to logins_path do
-            %i.far.fa-heart
+            %i.far.fa-heart.unlike-btn
         = @post.likes.count
         - if admin_signed_in? || user_signed_in? && current_user.already_booked?(@post)
-          = link_to post_bookmark_path(@post),{ method: :delete } do
-            %i.fas.fa-bookmark
+          = link_to post_bookmark_path(@post),{ method: :delete , class:"text-deco"} do
+            %i.fas.fa-bookmark.unbookmark-btn
         - elsif current_user
-          = link_to post_bookmarks_path(@post),{ method: :post } do
-            %i.far.fa-bookmark
+          = link_to post_bookmarks_path(@post),{ method: :post , class:"text-deco"} do
+            %i.far.fa-bookmark.bookmark-btn
         - else
           = link_to logins_path do
-            %i.far.fa-bookmark
+            %i.far.fa-bookmark.unbookmark-btn
         = @bookmarks.count
       .comment_count.side_by_side
       %br
@@ -39,7 +39,7 @@
       .post_top_info
         = @post.open_time
       .post_relative_tag
-        = raw(@post.tag_list.map { |t| link_to t, tag_path(t) }.join(' '))
+        = raw(@post.tag_list.map { |t| link_to t, tag_path(t), class: "text-deco" }.join(' '))
       .show_container
         - if current_user 
           = form_for [@post , @comment] do |f| 
@@ -64,6 +64,7 @@
       .another_info
         .another_info-title3 ホームページ
         = @post.store_url
+    .footer-adjust
 
   .right_side
     .first_tag #aaa

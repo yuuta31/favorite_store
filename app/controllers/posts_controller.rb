@@ -23,13 +23,14 @@ class PostsController < ApplicationController
   def show
     @comment = @post.comments.new
     @like = Like.new
-    @comments = @post.comments.includes(:user)
-    @stars = Comment.where(id: @post.id)
     @bookmark = Bookmark.new
+
+    @stars = Comment.where(id: @post.id)
     @bookmarks = Bookmark.where(post_id: @post.id).all
     @count = Comment.where(post_id: @post.id)
     @image = Image.where(post_id: @post.id).all
 
+    @comments = @post.comments.includes(:user)
     @aaa_posts = Post.tagged_with("aaa").order('created_at DESC').limit(2)
     @bbb_posts = Post.tagged_with("bbb").order('created_at DESC').limit(2)
     @ccc_posts = Post.tagged_with("ccc").order('created_at DESC').limit(2)
@@ -41,7 +42,7 @@ class PostsController < ApplicationController
       @search_posts = Post.where("name LIKE ?", "%#{post_params[:name]}%")
       @search_posts = @search_posts.tagged_with(post_params[:tag_list], match_all: false)
     else
-      redirect_to ({action: 'index'}), notice: 'タグを入力してください'
+      redirect_to ({action: 'index'}), alert: 'タグを入力してください'
     end
   end
 

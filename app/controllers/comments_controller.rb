@@ -4,14 +4,13 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
-    redirect_to "/users/posts/#{@comment.post.id}"
+    redirect_to "/users/posts/#{@comment.post.id}", notice: 'コメントしました'
   end
 
   def destroy
     @comment = Comment.find_by(id: params[:id],post_id: params[:post_id])
     if @comment.destroy
-      flash[:success] = 'コメント削除しました'
-      redirect_to "/users/posts/#{@comment.post.id}"
+      redirect_to "/users/posts/#{@comment.post.id}", alert: 'コメントを削除しました'
     else
       redirect_to root_path
     end

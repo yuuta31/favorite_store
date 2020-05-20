@@ -19,9 +19,8 @@
         .form-group
           = f.label :password 
           - if @minimum_password_length
-          %i 
-            = @minimum_password_length
-              入力してください
+            %em
+              (#{@minimum_password_length} 文字入力してください)
           = f.password_field :password , class: 'form-control', autocomplete: "new-password"
         
 
