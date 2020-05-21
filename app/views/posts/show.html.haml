@@ -35,8 +35,10 @@
       .comment_count.side_by_side
       %br
       .post_top_info
+        %i.fas.fa-subway
         = @post.station
       .post_top_info
+        %i.far.fa-clock
         = @post.open_time
       .post_relative_tag
         = raw(@post.tag_list.map { |t| link_to t, tag_path(t), class: "text-deco" }.join(' '))
