@@ -3,7 +3,7 @@
   <% if comments %>
     <% comments.each do |comment| %>
       <p class="comment_border">
-        <strong><%= link_to comment.user.nickname, "users/users/#{comment.user_id}" %>：</strong>
+        <strong><%= comment.user.nickname %>：</strong>
         <%= comment.title %>
         <div id="star-rate-<%= comment.id %>"></div>
         <%= comment.text %>
