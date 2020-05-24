@@ -32,7 +32,7 @@
     #image-box
       = f.fields_for :images do |image|
         %div{class: "js-file_group" , data: {index: "#{image.index}"}}
-          = image.file_field :image, class: 'js-file'
+          = image.file_field :image, multiple: true, class: 'js-file'
           %span  
             .js-remove 削除
         - if @post.persisted?
