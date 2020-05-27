@@ -48,16 +48,6 @@ ActiveRecord::Schema.define(version: 2020_04_27_235103) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_favorites_on_post_id"
-    t.index ["user_id", "post_id"], name: "index_favorites_on_user_id_and_post_id", unique: true
-    t.index ["user_id"], name: "index_favorites_on_user_id"
-  end
-
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image"
     t.bigint "post_id"
@@ -133,8 +123,6 @@ ActiveRecord::Schema.define(version: 2020_04_27_235103) do
   add_foreign_key "bookmarks", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "favorites", "posts"
-  add_foreign_key "favorites", "users"
   add_foreign_key "images", "posts"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"

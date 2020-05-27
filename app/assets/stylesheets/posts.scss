@@ -12,7 +12,7 @@
 
 .tag__section {
   border: 1px solid gray;
-  height: 270px;
+  height: 15%;
   width: 68%;
   margin: 0 auto;
   text-align: center;
@@ -43,6 +43,8 @@
     }
     .check_box {
       margin-bottom: 30px;
+      display: inline-block;
+      width: 80%;
     }
     .submit {
       display: block;
@@ -56,6 +58,26 @@
     }
     .space_submit {
       margin-top: 30px;
+    }
+    .check-group .input {
+      display: none;
+    }
+    .check-group .label {
+      cursor: pointer;
+      padding: 5px 10px;
+      float: left;
+      border: solid 1px #aaa;
+      margin-left: -1px;
+      background: #eee;
+      border-radius: 10px;
+    }
+    // .check-group .input:checked+.label {
+    //   color: #fff;
+    //   background: #C3C3C3;
+    // }
+    .checked {
+      color: #fff;
+      background: red;
     }
   }
 }
@@ -146,6 +168,8 @@
     .footer_list {
       display: inline-block;
       padding: 0 40px;
+      text-decoration: none;
+      color: black;
     }
   }
   &_copy {
@@ -298,9 +322,9 @@
     border-radius: 10px;
     .tag_store {
       border-radius: 10px;
-      height: 230px;
+      height: 160px;
       width: 16%;
-      background-color: yellow;
+      background-color: white;
       display: inline-block;
       margin-left: 6.7%;
       margin-top: 4%;

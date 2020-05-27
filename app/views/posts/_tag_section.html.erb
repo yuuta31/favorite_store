@@ -4,8 +4,10 @@
       <br>
       <div class="form_check-line form_check-sub form-check-inline check_box">
         <% tags.each do |tag| %>
-          <%= f.check_box :tag_list , { multiple: true , class: 'interested' }, "#{tag.name}", nil %>
-          <%= f.label " #{tag.name}(#{tag.taggings_count})", class: 'interested'%>
+          <div class="check-group">
+            <%= f.check_box :tag_list , { multiple: true , class: 'interested input' }, "#{tag.name}", nil %>
+            <%= f.label " #{tag.name}(#{tag.taggings_count})", class: 'interested label tag-btn'%>
+          </div>
         <% end %>
       </div>
       <%= f.submit "検索", class: 'submit btn btn-outline-primary' %>

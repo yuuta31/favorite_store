@@ -1,0 +1,12 @@
+.info {
+  height: 100%;
+  width: 70%;
+  margin: 5% auto;
+  &_title {
+    font-size: 24px;
+    margin-top: 2%;
+  }
+  &_content {
+    margin-top: 3%;
+  }
+}
