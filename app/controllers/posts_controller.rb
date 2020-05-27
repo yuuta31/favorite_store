@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     end
     @post = Post.new
 
-    @aaa_posts = Post.tagged_with("aaa").order('created_at DESC').limit(4)
+    @aaa_posts = Post.tagged_with("新宿").order('created_at DESC').limit(4)
     @bbb_posts = Post.tagged_with("bbb").order('created_at DESC').limit(4)
     @ccc_posts = Post.tagged_with("ccc").order('created_at DESC').limit(4)
     @ddd_posts = Post.tagged_with("ddd").order('created_at DESC').limit(4)

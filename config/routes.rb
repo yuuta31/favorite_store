@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   # user用
   scope :users do
-    # resources :informations, only: %i(index)
+    resources :informations, only: %i(index)
     resources :logins, only: %i(index)
     resources :users , only: %i(show)
     resources :posts , only: %i(index show) do
