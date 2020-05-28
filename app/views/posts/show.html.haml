@@ -89,13 +89,3 @@
         = icon("fas", "comment")
         = p.comments.count
         %hr
-    .first_tag #おしゃれ
-    - @atmosphere.each do |p|
-      .tag_block
-        = image_tag p.images.first.image.url, size: "100x100"
-        = link_to "#{p.name}", post_path(p) , data: {"turbolinks": false}
-        = icon("fas", "far fa-heart")
-        = p.liked_users.count
-        = icon("fas", "comment")
-        = p.comments.count
-        %hr
