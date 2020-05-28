@@ -1,22 +1,15 @@
 class PostsController < ApplicationController
-  before_action :all_tags  , only: %i(index)
-  before_action :post_find , only: %i(show)
+  before_action :all_tags       , only: %i(index)
+  before_action :post_find      , only: %i(show)
+  before_action :all_store      , only: %i(index show)
 
   def index
     if params[:tag]
       @posts = Post.tagged_with(params[:tag_list])
     else
-      @posts = Post.all.includes(:images)
+      @posts = Post.all.includes(:images).order('created_at DESC').limit(4)
     end
     @post = Post.new
-
-    @aaa_posts = Post.tagged_with("新宿").order('created_at DESC').limit(4)
-    @bbb_posts = Post.tagged_with("bbb").order('created_at DESC').limit(4)
-    @ccc_posts = Post.tagged_with("ccc").order('created_at DESC').limit(4)
-    @ddd_posts = Post.tagged_with("ddd").order('created_at DESC').limit(4)
-
-    @index = Post.all
-    
     @count = Comment.where(post_id: @post.id)
   end
 
@@ -24,17 +17,11 @@ class PostsController < ApplicationController
     @comment = @post.comments.new
     @like = Like.new
     @bookmark = Bookmark.new
-
+    @count = Comment.where(post_id: @post.id)
     @stars = Comment.where(id: @post.id)
     @bookmarks = Bookmark.where(post_id: @post.id).all
-    @count = Comment.where(post_id: @post.id)
     @image = Image.where(post_id: @post.id).all
-
     @comments = @post.comments.includes(:user)
-    @aaa_posts = Post.tagged_with("aaa").order('created_at DESC').limit(2)
-    @bbb_posts = Post.tagged_with("bbb").order('created_at DESC').limit(2)
-    @ccc_posts = Post.tagged_with("ccc").order('created_at DESC').limit(2)
-    @ddd_posts = Post.tagged_with("ddd").order('created_at DESC').limit(2)
   end
 
   def search
