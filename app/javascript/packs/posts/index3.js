@@ -7,7 +7,7 @@ import "vuetify/dist/vuetify.min.css"; // 追加
 Vue.use(Vuetify); // 追加
 
 const app = new Vue({
-  el: '.js-postsIndex1',
+  el: '.js-postsIndex3',
   data: {
     postInfo: {},
     postInfoBool: false,

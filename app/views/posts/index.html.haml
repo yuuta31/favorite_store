@@ -4,12 +4,46 @@
 .tag__section
   = render 'tag_section', post: @post , tags: @tags
 
-.js-postsIndex
+.js-postsIndex1
   .all_store
     .all_store-recommend
       .space
-        %p.left.store_adjust #aaaタグ
-        - @aaa_posts.each do |post|
+        %p.left.store_adjust #新着
+        - @new_store.each do |post|
+          .separate_store
+            .separate_store-list
+              %span.v_click{'v-on:click': "setPostInfo(#{post.id})"}
+                .image_list
+                  = image_tag post.images.first.image.url , class: "image_list-size"
+                = post.name
+                = icon("fas", "far fa-heart")
+                = post.liked_users.count
+                = icon("fas", "comment")
+                = post.comments.count
+                = link_to "詳細を見る", post_path(post), class: "show_detail" , data: {"turbolinks": false}
+                - if admin_signed_in? && current_admin.administrator?
+                  = link_to("削除", admins_post_path(post), method: :delete)
+        %p.right
+        .row{'v-show': 'postInfoBool'}
+          .col.s12.m12
+            .card.blue-grey.darken-1
+              .card-content.white-text
+                .show_info {{ postInfo.name }}
+                .show_info
+                  %i.fas.fa-map-marker-alt.inline
+                  {{ postInfo.place }}
+                .show_info 
+                  %i.fas.fa-subway.inline
+                  {{ postInfo.station }}
+                .show_info
+                  %i.far.fa-clock.inline
+                  .show_info-content {{ postInfo.open_time }}
+.js-postsIndex2
+  .all_store
+    .all_store-recommend
+      .space
+        %p.left.store_adjust #おすすめ
+        - @recommend.each do |post|
           .separate_store
             .separate_store-list
               %span.v_click{'v-on:click': "setPostInfo(#{post.id})"}
@@ -39,11 +73,12 @@
                   %i.far.fa-clock.inline
                   .show_info-content {{ postInfo.open_time }}
 
+.js-postsIndex3
   .all_store
     .all_store-recommend
       .space
-        %p.left.store_adjust #aaaタグ
-        - @bbb_posts.each do |post|
+        %p.left.store_adjust #和食
+        - @washoku.each do |post|
           .separate_store
             .separate_store-list
               %span.v_click{'v-on:click': "setPostInfo(#{post.id})"}
@@ -73,47 +108,12 @@
                   %i.far.fa-clock.inline
                   .show_info-content {{ postInfo.open_time }}
 
-
+.js-postsIndex4
   .all_store
     .all_store-recommend
       .space
-        %p.left.store_adjust #aaaタグ
-        - @ccc_posts.each do |post|
-          .separate_store
-            .separate_store-list
-              %span.v_click{'v-on:click': "setPostInfo(#{post.id})"}
-                .image_list
-                  = image_tag post.images.first.image.url , class: "image_list-size"
-                = post.name
-                = icon("fas", "far fa-heart")
-                = post.liked_users.count
-                = icon("fas", "comment")
-                = post.comments.count
-                = link_to "詳細を見る", post_path(post), class: "show_detail" , data: {"turbolinks": false}
-                - if admin_signed_in? && current_admin.administrator?
-                  = link_to("削除", admins_post_path(post), method: :delete)
-        %p.right
-        .row{'v-show': 'postInfoBool'}
-          .col.s12.m12
-            .card.blue-grey.darken-1
-              .card-content.white-text
-                .show_info {{ postInfo.name }}
-                .show_info
-                  %i.fas.fa-map-marker-alt.inline
-                  {{ postInfo.place }}
-                .show_info 
-                  %i.fas.fa-subway.inline
-                  {{ postInfo.station }}
-                .show_info
-                  %i.far.fa-clock.inline
-                  .show_info-content {{ postInfo.open_time }}
-
-
-  .all_store
-    .all_store-recommend
-      .space
-        %p.left.store_adjust #aaaタグ
-        - @ddd_posts.each do |post|
+        %p.left.store_adjust #洋食
+        - @yousyoku.each do |post|
           .separate_store
             .separate_store-list
               %span.v_click{'v-on:click': "setPostInfo(#{post.id})"}
@@ -147,3 +147,6 @@
 
 
 = javascript_pack_tag 'posts/index'
+= javascript_pack_tag 'posts/index2'
+= javascript_pack_tag 'posts/index3'
+= javascript_pack_tag 'posts/index4'
