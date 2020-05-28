@@ -12,7 +12,7 @@ Admin.create!(nickname: Rails.application.credentials[:admin][:nickname],
               password_confirmation: Rails.application.credentials[:admin][:password_confirmation],
               administrator: true)
 
-array = %w(新宿 恵比寿 渋谷 六本木 西麻布 和食 洋食 中華 イタリアン フレンチ 地中海料理 その他 個室あり 全面禁煙 喫煙席あり クレジットカード可 個室あり おしゃれ)
+array = %w(新宿 恵比寿 渋谷 六本木 西麻布 和食 洋食 中華 イタリアン フレンチ 地中海料理 その他 個室あり 全面禁煙 喫煙席あり クレジットカード可 個室あり おしゃれ おすすめ)
 array.each{ |tag|
   tag_list = ActsAsTaggableOn::Tag.new
   tag_list.name = tag

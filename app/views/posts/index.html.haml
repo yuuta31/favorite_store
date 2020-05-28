@@ -24,7 +24,7 @@
                 - if admin_signed_in? && current_admin.administrator?
                   = link_to("削除", admins_post_path(post), method: :delete)
         %p.right
-        .row{'v-show': 'postInfoBool'}
+        .row{'v-show': 'postInfoBool', 'v-cloak': ""}
           .col.s12.m12
             .card.blue-grey.darken-1
               .card-content.white-text
@@ -58,7 +58,7 @@
                 - if admin_signed_in? && current_admin.administrator?
                   = link_to("削除", admins_post_path(post), method: :delete)
         %p.right
-        .row{'v-show': 'postInfoBool'}
+        .row{'v-show': 'postInfoBool', 'v-cloak': ""}
           .col.s12.m12
             .card.blue-grey.darken-1
               .card-content.white-text
@@ -93,7 +93,7 @@
                 - if admin_signed_in? && current_admin.administrator?
                   = link_to("削除", admins_post_path(post), method: :delete)
         %p.right
-        .row{'v-show': 'postInfoBool'}
+        .row{'v-show': 'postInfoBool', 'v-cloak': ""}
           .col.s12.m12
             .card.blue-grey.darken-1
               .card-content.white-text
@@ -128,7 +128,7 @@
                 - if admin_signed_in? && current_admin.administrator?
                   = link_to("削除", admins_post_path(post), method: :delete)
         %p.right
-        .row{'v-show': 'postInfoBool'}
+        .row{'v-show': 'postInfoBool', 'v-cloak': ""}
           .col.s12.m12
             .card.blue-grey.darken-1
               .card-content.white-text
