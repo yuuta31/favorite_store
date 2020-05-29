@@ -15,14 +15,18 @@
               %span.v_click{'v-on:click': "setPostInfo(#{post.id})"}
                 .image_list
                   = image_tag post.images.first.image.url , class: "image_list-size"
-                = post.name
-                = icon("fas", "far fa-heart")
-                = post.liked_users.count
-                = icon("fas", "comment")
-                = post.comments.count
+                .store_block
+                  = post.name
+                .store_block
+                  = icon("fas", "far fa-heart")
+                  = post.liked_users.count
+                  = icon("fas", "comment")
+                  = post.comments.count
                 = link_to "詳細を見る", post_path(post), class: "show_detail" , data: {"turbolinks": false}
                 - if admin_signed_in? && current_admin.administrator?
                   = link_to("削除", admins_post_path(post), method: :delete)
+                  = link_to("編集", edit_admins_post_path(post))
+
         %p.right
         .row{'v-show': 'postInfoBool', 'v-cloak': ""}
           .col.s12.m12
@@ -49,14 +53,17 @@
               %span.v_click{'v-on:click': "setPostInfo(#{post.id})"}
                 .image_list
                   = image_tag post.images.first.image.url , class: "image_list-size"
-                = post.name
-                = icon("fas", "far fa-heart")
-                = post.liked_users.count
-                = icon("fas", "comment")
-                = post.comments.count
+                .store_block
+                  = post.name
+                .store_block
+                  = icon("fas", "far fa-heart")
+                  = post.liked_users.count
+                  = icon("fas", "comment")
+                  = post.comments.count
                 = link_to "詳細を見る", post_path(post), class: "show_detail" , data: {"turbolinks": false}
                 - if admin_signed_in? && current_admin.administrator?
                   = link_to("削除", admins_post_path(post), method: :delete)
+                  = link_to("編集", edit_admins_post_path(post))
         %p.right
         .row{'v-show': 'postInfoBool', 'v-cloak': ""}
           .col.s12.m12
@@ -84,14 +91,17 @@
               %span.v_click{'v-on:click': "setPostInfo(#{post.id})"}
                 .image_list
                   = image_tag post.images.first.image.url , class: "image_list-size"
-                = post.name
-                = icon("fas", "far fa-heart")
-                = post.liked_users.count
-                = icon("fas", "comment")
-                = post.comments.count
+                .store_block
+                  = post.name
+                .store_block
+                  = icon("fas", "far fa-heart")
+                  = post.liked_users.count
+                  = icon("fas", "comment")
+                  = post.comments.count
                 = link_to "詳細を見る", post_path(post), class: "show_detail" , data: {"turbolinks": false}
                 - if admin_signed_in? && current_admin.administrator?
                   = link_to("削除", admins_post_path(post), method: :delete)
+                  = link_to("編集", edit_admins_post_path(post))
         %p.right
         .row{'v-show': 'postInfoBool', 'v-cloak': ""}
           .col.s12.m12
@@ -119,14 +129,17 @@
               %span.v_click{'v-on:click': "setPostInfo(#{post.id})"}
                 .image_list
                   = image_tag post.images.first.image.url , class: "image_list-size"
-                = post.name
-                = icon("fas", "far fa-heart")
-                = post.liked_users.count
-                = icon("fas", "comment")
-                = post.comments.count
+                .store_block
+                  = post.name
+                .store_block
+                  = icon("fas", "far fa-heart")
+                  = post.liked_users.count
+                  = icon("fas", "comment")
+                  = post.comments.count
                 = link_to "詳細を見る", post_path(post), class: "show_detail" , data: {"turbolinks": false}
                 - if admin_signed_in? && current_admin.administrator?
                   = link_to("削除", admins_post_path(post), method: :delete)
+                  = link_to("編集", edit_admins_post_path(post))
         %p.right
         .row{'v-show': 'postInfoBool', 'v-cloak': ""}
           .col.s12.m12
@@ -143,8 +156,6 @@
                   %i.far.fa-clock.inline
                   .show_info-content {{ postInfo.open_time }}
 .adjust_down
-
-
 
 = javascript_pack_tag 'posts/index'
 = javascript_pack_tag 'posts/index2'

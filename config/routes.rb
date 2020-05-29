@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -10,15 +9,12 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-
   root 'posts#index'
-
   # 管理者用
   namespace :admins do
     resources :posts, except: %i(new show)
-    resources :users, only: %i(index destroy)#アカウントbanのため
+    resources :users, only: %i(index destroy)
   end
-
   # user用
   scope :users do
     resources :informations, only: %i(index)
@@ -31,19 +27,13 @@ Rails.application.routes.draw do
       end
       resources :comments, only: %i(create destroy)
       resources :likes, only: %i(create destroy)
-      # member do
-      #   post "add", to: "clips#create"
-      # end
       resources :bookmarks, only: %i(create destroy)
     end
-    # resources :clips, only: %i(destroy)
   end
-
   # vue.js用
   namespace :api do
     resources :posts, only: %i(show)
   end
-
   # タグ用
   get 'tags/:tag', to: 'posts#index', as: :tag
 

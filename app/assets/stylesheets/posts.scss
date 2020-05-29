@@ -1,5 +1,4 @@
 // index
-
 .image__section {
   height: 400px;
   margin-bottom: 5rem;
@@ -8,7 +7,6 @@
     height: 400px;
   }
 }
-
 
 .tag__section {
   border: 1px solid gray;
@@ -22,7 +20,6 @@
       padding-bottom: 30px;
       text-align: center;
       font-size: 24px;
-
     }
     .store_name {
       width: 300px;
@@ -30,7 +27,6 @@
       margin: 0 auto;
       &-size {
         display: inline-block;
-
       }
     }
     .form_check-line {
@@ -71,18 +67,12 @@
       background: #eee;
       border-radius: 10px;
     }
-    // .check-group .input:checked+.label {
-    //   color: #fff;
-    //   background: #C3C3C3;
-    // }
     .checked {
       color: #fff;
       background: red;
     }
   }
 }
-
-
 
 .all_store {
   height: 350px;
@@ -105,7 +95,7 @@
         padding-top: 30px;
       }
       .separate_store {
-        height: 180px;
+        height: 190px;
         width: 17%;
         position: relative;
         background-color: white;
@@ -122,9 +112,12 @@
               border-radius: 10px;
             }
           }
+          .store_block {
+            display: block;
+            width: 100%;
+          }
           .show_detail {
             display: block;
-            margin-top: 6%;
             text-align: right;
             text-decoration: none;
           }
@@ -136,7 +129,6 @@
 
 .inline {
   display: inline-block;
-
 }
 
 .show_info {
@@ -158,10 +150,8 @@
   margin-top: 100px;
   clear: both;
   background-color: lightgray;
-  
   height: 200px;
   width: 100%;
-
   &_nav {
     text-align: center;
     margin-top: 20px;
@@ -196,7 +186,6 @@
       margin-top: 50px;
       &-img {
         width: 60%;
-        
       }
       .all_photo {
         margin-top: 30px;
@@ -291,14 +280,12 @@
         }
       }
     }
-
   }
 
   .right_side {
     height: 100%;
     width: 35%;
     float: right;
-    
     .first_tag {
       margin-top: 30px;
       .tag_block {
@@ -323,7 +310,7 @@
     border-radius: 10px;
     .tag_store {
       border-radius: 10px;
-      height: 160px;
+      height: 170px;
       width: 16%;
       background-color: white;
       display: inline-block;
@@ -338,11 +325,15 @@
             border-radius: 10px;
           }
         }
+        .search_block {
+          display: block;
+          width: 100%;
+        }
       }
     }
   }
 }
 
 .footer-search {
-  margin-bottom: 18%;
+  margin-bottom: 47%;
 }

@@ -5,9 +5,11 @@
         .tag_store-list
           .tag_image
             = image_tag post.images.first.image.url , class: "search_image"
-          = link_to "#{post.name}", post_path(post) , data: {"turbolinks": false}
-          = icon("fas", "far fa-heart")
-          = post.liked_users.count
-          = icon("fas", "comment")
-          = post.comments.count
+          .search_block
+            = link_to "#{post.name}", post_path(post) , data: {"turbolinks": false}
+          .search_block
+            = icon("fas", "far fa-heart")
+            = post.liked_users.count
+            = icon("fas", "comment")
+            = post.comments.count
 .footer-search
