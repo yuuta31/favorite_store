@@ -11,7 +11,14 @@ RSpec.describe Post, type: :model do
         expect(post).to be_valid
       end
     end
-    
+    context '全てに値が入っていない場合' do
+      it 'falseを返す' do
+        post = build(:post, name: nil)
+        post.valid?
+        expect(post.errors[:name]).to include("を入力してください")
+      end
+    end
+
   end
 
 end
