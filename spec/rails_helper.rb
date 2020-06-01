@@ -30,6 +30,12 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
+RSpec.configure do |config|
+  config.include Devise::Test::IntegrationHelpers, type: :request #sign_inヘルパーを提供してくれます
+  config.include FactoryBot::Syntax::Methods #ついでにFactoryBotもincludeしておきます
+end
+
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
