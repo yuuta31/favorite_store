@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-describe PostsController do
+describe PostsController, type: :controller do
+  before do
+    @user = FactoryBot.create(:user)
+  end
+
   describe 'GET #show' do
     it "assigns the requested post to @post" do
       post = create(:post)
@@ -13,7 +17,6 @@ describe PostsController do
       expect(response).to render_template :show
     end
   end
-
   describe 'GET #index' do
     it "renders the :index templete" do
       post = create(:post)
@@ -22,3 +25,4 @@ describe PostsController do
     end
   end
 end
+
