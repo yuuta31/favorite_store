@@ -56,7 +56,7 @@ Favorite store は、おすすめのお店を探すことができます！
 
 <h3 align="center">コメント、いいね、ブックマーク機能</h3>
 
-<img align="center" width="703" alt="スクリーンショット 2020-06-09 15 07 45" src="https://user-images.githubusercontent.com/54881132/84112042-ff99ae00-aa62-11ea-8242-8260adc08c7a.png">
+<img align="center" width="634" alt="スクリーンショット 2020-06-09 15 15 54" src="https://user-images.githubusercontent.com/54881132/84112660-27d5dc80-aa64-11ea-8198-0a543d4d5aa0.png">
 
 ## :cloud: インフラストラクチャ構成
 <p align="center">
