@@ -42,18 +42,21 @@ Favorite store は、おすすめのお店を探すことができます！
 
 <h3 align="center">タグ検索機能</h3>
 
-<!-- 画面付きで、管理者ができることを列挙 -->
 <img align="center" width="1009" alt="tag-search" src="https://user-images.githubusercontent.com/54881132/84110729-5fdb2080-aa60-11ea-9f3c-ceb9a650530d.png">
+
+</br></br></br>
+***
 
 <h3 align="center">非同期 詳細情報の取得</h3>
 
 <img align="center" width="1016" alt="スクリーンショット 2020-06-09 15 04 50" src="https://user-images.githubusercontent.com/54881132/84111862-b21d4100-aa62-11ea-9a37-b7b14106b9ab.png">
 
+</br></br></br>
+***
+
 <h3 align="center">コメント、いいね、ブックマーク機能</h3>
 
 <img align="center" width="703" alt="スクリーンショット 2020-06-09 15 07 45" src="https://user-images.githubusercontent.com/54881132/84112042-ff99ae00-aa62-11ea-8242-8260adc08c7a.png">
-
-<!-- 画面付きで、ユーザーができることを列挙 -->
 
 ## :cloud: インフラストラクチャ構成
 <p align="center">
@@ -71,7 +74,7 @@ Favorite store は、おすすめのお店を探すことができます！
 ## :speech_balloon: git clone
 
 ```
-$ git clone 
+$ git clone https://github.com/yuuta31/favorite_store.git
 $ cd favorite_store
 $ docker-compose build --no-cache
 $ docker-compose run --rm app rails db:create
