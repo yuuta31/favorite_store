@@ -1,7 +1,7 @@
 # Favorite store
 
 <p align="center">
-<img width="483" alt="" src="https://user-images.githubusercontent.com/54881132/83920731-ca1d6800-a7b7-11ea-8aa0-99ae9f265adc.gif">
+<img width="483" src="https://user-images.githubusercontent.com/54881132/83920731-ca1d6800-a7b7-11ea-8aa0-99ae9f265adc.gif">
 </p>
 
 ## :memo: アプリ紹介
@@ -13,8 +13,6 @@ Favorite store は、おすすめのお店を探すことができます！
 
 ## :star: 使用技術
 
-</br></br></br>
-***
 <p align="center">
 <a href="https://guides.rubyonrails.org/"><img src="https://user-images.githubusercontent.com/54881132/84109149-f86fa180-aa5c-11ea-9206-d4c03427d59c.png" height="60px;" /></a>
 <a href="https://jp.vuejs.org/index.html"><img src="https://user-images.githubusercontent.com/54881132/84109500-c448b080-aa5d-11ea-9186-bfb2e849ed89.png" height="60px;" /></a>
@@ -35,24 +33,52 @@ Favorite store は、おすすめのお店を探すことができます！
 
 </br>
 
-<h3 align="center">:smiley: アプリ画面</h3>
+## :book: アプリ画面紹介
+
+<h3 align="center">:smiley: ユーザー画面</h3>
+
+</br></br></br>
+***
+
+<h3 align="center">タグ検索機能</h3>
 
 <!-- 画面付きで、管理者ができることを列挙 -->
+<img align="center" width="1009" alt="tag-search" src="https://user-images.githubusercontent.com/54881132/84110729-5fdb2080-aa60-11ea-9f3c-ceb9a650530d.png">
+
+<h3 align="center">非同期 詳細情報の取得</h3>
+
+<img align="center" width="1016" alt="スクリーンショット 2020-06-09 15 04 50" src="https://user-images.githubusercontent.com/54881132/84111862-b21d4100-aa62-11ea-9a37-b7b14106b9ab.png">
+
+<h3 align="center">コメント、いいね、ブックマーク機能</h3>
+
+<img align="center" width="703" alt="スクリーンショット 2020-06-09 15 07 45" src="https://user-images.githubusercontent.com/54881132/84112042-ff99ae00-aa62-11ea-8242-8260adc08c7a.png">
 
 <!-- 画面付きで、ユーザーができることを列挙 -->
 
 ## :cloud: インフラストラクチャ構成
 <p align="center">
-<img width="518" alt="" src="https://user-images.githubusercontent.com/54881132/84020706-35d12200-a9be-11ea-92cd-c8ad658ddaab.png">
+<img width="884" src="https://user-images.githubusercontent.com/54881132/84020638-16d29000-a9be-11ea-9155-6a271d0ce0a8.png">
 </p>
 
 </br>
 
 ## :eyes: ER図
 
-<img width="884" alt="" src="https://user-images.githubusercontent.com/54881132/84020638-16d29000-a9be-11ea-9155-6a271d0ce0a8.png">
+<img width="884" src="https://user-images.githubusercontent.com/54881132/84110050-08888080-aa5f-11ea-97b0-c7dacb27a79b.png">
 
 </br>
+
+## :speech_balloon: git clone
+
+```
+$ git clone 
+$ cd favorite_store
+$ docker-compose build --no-cache
+$ docker-compose run --rm app rails db:create
+$ docker-compose run --rm app rails db:migrate
+$ docker-compose up -d
+👉http://localhost/
+```
 
 ## :smile: 作成者
 - <a href="https://twitter.com/onoblog">Twitter</a>
