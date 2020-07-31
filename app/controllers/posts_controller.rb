@@ -10,15 +10,12 @@ class PostsController < ApplicationController
       @posts = Post.all.includes(:images).order('created_at DESC').limit(4)
     end
     @post = Post.new
-    @count = Comment.where(post_id: @post.id)
   end
 
   def show
     @comment = @post.comments.new
     @like = Like.new
     @bookmark = Bookmark.new
-    @count = Comment.where(post_id: @post.id)
-    @stars = Comment.where(id: @post.id)
     @bookmarks = Bookmark.where(post_id: @post.id).all
     @image = Image.where(post_id: @post.id).all
     @comments = @post.comments.includes(:user)
