@@ -10,7 +10,7 @@
       .show_title 
         = @post.name
       %div{id: "star-rate-#{@post.id}" , class: "star_average side_by_side"}
-      = render 'posts/average', post: @post , stars: @stars
+      = render 'posts/average', post: @post
       .like_title.side_by_side
         - if admin_signed_in? || user_signed_in? && current_user.already_liked?(@post) 
           = link_to post_like_path(@post),{ method: :delete, class:"text-deco"} do
