@@ -84,5 +84,4 @@ $ docker-compose up -d
 ```
 
 ## :smile: 作成者
-- <a href="https://twitter.com/onoblog">Twitter</a>
 - <a href="https://qiita.com/onoblog">Qiita</a>
