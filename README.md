@@ -82,6 +82,3 @@ $ docker-compose run --rm app rails db:migrate
 $ docker-compose up -d
 👉http://localhost/
 ```
-
-## :smile: 作成者
-- <a href="https://qiita.com/onoblog">Qiita</a>
